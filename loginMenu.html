@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Menu</title>
+</head>
+<style>
+  .hidden{
+    opacity: 0;
+    transform: translateY(100vh);
+  }
+  .popup-container{
+    transition: all .5s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* elementler arası boşluk */
+    width: 500px; /* genişlik */
+    height: auto; /* genişlik */
+    background: gray;
+    position: fixed;
+    left: calc(50vw - 250px);
+    top: calc(50vh - 250px);
+    padding: 16px;
+  }
+  .button{
+    background: #ed563b;
+    color: #fff;
+    height: 32px;
+    border: 0;
+    cursor: pointer;
+  }
+  .input-group{
+    display: flex;
+    flex-direction: column;
+  }
+  .closebutton{
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    right: 8px;
+    top:8px;
+    cursor: pointer;
+  }
+  .input{
+    font-size: 28px;
+    height: 32px;
+    border-radius:4px;
+  }
+</style>
+<body>
+<button onclick="openPopup()" class="button">open menu</button>
+<div class="popup-container hidden" id="loginpopup">
+  <img src="cross.svg" onclick="closePopup()" class="closebutton">
+  <h3>Login</h3>
+  <div class="input-group">
+    <label for="username">Kullanıcı Adı</label>
+    <input class="input" type="text" name="username" id="username">
+  </div>
+  <div class="input-group">
+    <label for="password">Şifre</label>
+    <input class="input" type="password" name="password" id="password">
+  </div>
+  <button class="button">Giriş Yap</button>
+  <button class="button">Kaydol</button>
+</div>
+</body>
+<script>
+  function openPopup() {
+    document.getElementById('loginpopup').classList.remove('hidden');
+  }
+  function closePopup() {
+    document.getElementById('loginpopup').classList.add('hidden');
+  }
+</script>
+</html>
